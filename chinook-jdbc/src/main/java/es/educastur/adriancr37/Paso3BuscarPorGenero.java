@@ -13,13 +13,12 @@ public class Paso3BuscarPorGenero {
         String url = "jdbc:mariadb://localhost:3306/chinook";
         String usuario = "root";
         String contraseña = "";
-        int generoId = 1; // Rock, en el Chinook estándar 
+        int generoId = 1; // Rock, en el Chinook estándar
 
         String sql = "SELECT Name FROM Track WHERE GenreId = ? ORDER BY Name LIMIT 15";
 
         try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-             PreparedStatement sentencia = conexion.prepareStatement(sql)
-        ) {
+                PreparedStatement sentencia = conexion.prepareStatement(sql)) {
             sentencia.setInt(1, generoId);
 
             try (ResultSet resultado = sentencia.executeQuery()) {

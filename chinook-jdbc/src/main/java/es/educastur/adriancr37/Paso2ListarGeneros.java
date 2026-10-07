@@ -14,7 +14,7 @@ public class Paso2ListarGeneros {
         String sql = "SELECT GenreId, Name FROM Genre ORDER BY Name";
 
         try (Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-             Statement sentencia = conexion.createStatement()) {
+                Statement sentencia = conexion.createStatement()) {
 
             boolean hayResultado = sentencia.execute(sql);
             System.out.println("execute() devuelve un ResultSet? " + hayResultado);
